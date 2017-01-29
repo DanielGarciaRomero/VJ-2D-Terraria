@@ -1,0 +1,189 @@
+Videojocs 16/17 Q1 - Exercici 2D: TERRARIA
+
+
+Nom i cognoms dels integrants del grup
+-------------------------------------
+
+Álvaro Martínez Arroyo
+
+Daniel García Romero
+
+
+Instruccions del joc
+--------------------
+
+En qualsevol moment del joc:
+
+-> Esc per finalitzar l'execució del joc
+
+
+En el menu:
+
+-> Fletxes de dalt i de baix per seleccionar el submenu al qual volguem accedir
+
+-> Enter per confirmar el submenu seleccionat i accedir-hi
+
+
+En el submenu d'escollir personatge:
+
+-> Fletxes d'esquerra i dreta per seleccionar un personatge (Angler, Lizard o MJ)
+
+-> Enter per confirmar el personatge seleccionat i tornar al menu
+
+
+En el submenu d'ajuda:
+
+-> Enter per tornar al menu
+
+
+En el submenu dels crèdits:
+
+-> Enter per tornar al menu
+
+
+En la pantalla de GAME OVER:
+
+-> No cal prémer cap tecla (el joc torna sol al menu al cap d'uns segons)
+
+
+En la pantalla que apareix un cop t'has passat el joc:
+
+-> Enter per tornar al menu
+
+
+En qualsevol dels dos mapes:
+
+-> F1 per equipar el pic
+-> F2 per equipar l'espasa
+-> F3 per equipar el pic de foc
+-> F5 per col·locar davant teu un tros de fusta
+-> F11 per prendre't una poció i recuperar 40 unitats de vida
+-> Q per mostrar l'inventari
+-> Y per canviar a mode rèptil (només ho pot fer Lizard)
+-> D per picar el tros de fusta que hi hagi davant meu (tenint equipat el pic)
+-> K per atacar (tenint equipat el pic, l'espasa o el pic de foc)
+
+Només al mapa 1:
+
+-> F4 per equipar la canya de pescar (només ho pot fer l'Angler)
+-> F6 per col·locar davant teu un llit
+-> F7 per col·locar davant teu una planta
+-> F8 per col·locar davant teu una porta
+-> F9 per donar un peix al mercantil (només ho pot fer l'Angler)
+-> D per:
+    - picar el tros de terra que hi hagi davant meu (tenint equipat el pic)
+    - talar l'arbre que estigui davant meu (tenint equipat el pic)
+-> S per picar el tros de terra que hi hagi a sota meu (tenint equipat el pic)
+-> K per pescar (tenint equipada la canya i només ho pot fer l'Angler)
+
+Només al mapa 2:
+
+-> P per utilitzar la gemma i obtenir el pic de foc
+-> F12 per prendre't un elixir i recuperar tota la vida
+-> K per obrir un cofre (tenint equipat el pic, l'espasa o el pic de foc)
+
+
+Funcionalitats implementades
+----------------------------
+
+-> El personatge que controlem té 100 unitats de vida representades en forma de 5 cors.
+
+-> Pot equipar-se amb un pic, amb una espasa, amb un pic de foc o amb una canya.
+   
+   Amb el pic pot picar terra i fusta, talar arbres i obtenir fusta (en rebre un tercer
+   cop de pic, l'arbre desapareix i obtenim 5 trossos de fusta), atacar enemics (cada
+   cop de pic debilita l'enemic en 5 unitats de vida) i obrir cofres.
+
+   Amb l'espasa pot atacar enemics (cada cop d'espasa debilita l'enemic en 10 unitats
+   de vida) i obrir cofres.
+
+   Amb el pic de foc pot atacar enemics (cada cop de pic de foc debilita l'enemic en 20
+   unitats de vida) i obrir cofres.
+
+   Amb la canya pot pescar el peix situat a l'esquerra del tot del primer mapa.
+
+-> El joc està format per dos mapes o nivells. 
+
+   El primer està pensat per familiaritzar-se amb la mecànica del joc i amb el posicionament 
+   de les tecles que ha de prémer en comptes de començar a lluitar des d'un principi (encara 
+   que al final d'aquest, on trobarem un portal per anar al segon mapa, hi haurà un enemic 
+   teòricament fàcil de vèncer que, si el derrotem, obtindrem l'espasa). Aquesta mecànica
+   consistirà en recollir materials (fusta, peix, etc.) i fer-los servir per, per exemple,
+   construir una casa o situar blocs de fusta en forma d'escala que ens permetin tornar a la
+   superfície en cas d'haver excavat massa.
+
+   El segon mapa, en canvi, sí que està pensat perquè lluitem amb una sèrie d'enemics,
+   cada vegada més forts, per tal d'obtenir experència de lluita i objectes (obrint cofres)
+   que ens ajudin a derrotar-los a ells i al Golem (boss final).
+
+-> Hi ha 7 tipus d'enemics:
+
+   - Evil Rabbit. Té 10 unitats de vida, el seu moviment és random i et treu 10 unitats de vida.
+  
+   - Fire Rat. Té 20 unitats de vida, el seu moviment és random i et treu 10 unitats de vida.
+
+   - Tortoise. Té 20 unitats de vida i et treu 10 unitats de vida. Quan et veu, comença a moure's
+     de dreta a esquerra i d'esquerra a dreta, molt ràpid, simulant el comportament de la tortuga 
+     del Super Mario.
+
+   - Evil Bird. No es pot matar. El seu moviment és random fins el primer cofre. A partir d'aquí,
+     et segueix fins arribar a l'últim cofre i et llença boles de foc que et treuen 10 unitats de vida.
+
+   - Soldier1. Té 40 unitats de vida i et treu 10 unitats de vida. Quan et veu, comença a perseguir-te
+     fins on hi ha lava (límit per la dreta) o fins la posició inicial de Tortoise (límit per l'esquerra).
+
+   - Soldier2. Té 50 unitats de vida i et treu 10 unitats de vida. Quan et veu, comença a perseguir-te
+     fins on hi ha lava (límit per l'esquerra) o fins el territori del Golem (límit per la dreta).
+
+   - Golem. Té 960 unitats de vida. Quan et veu, comença a llençar boles de foc per la boca que et treuen 
+     10 unitats de vida i a donar cops de puny que treuen 20 unitats de vida. Cada cert temps, es 
+     teletransporta a l'altre punta del territori de batalla per dificultar-nos la victòria.
+
+-> Per cada segon aproximadament que el personatge està en contacte amb la lava, perd 10 unitats de vida.
+
+-> Quan la vida del nostre personatge arriba a zero, aquest fa una mena d'escenificació de la seva mort
+   i ens apareix una pantalla de GAME OVER.
+
+-> Quan derrotem al Golem, ens apareix una pantalla indicant que ens hem passat el joc.
+
+-> So:
+
+   - Tots tres personatges (quatre si comptem el mercantil), els enemics i els objectes tenen assignats 
+     una sèrie d'efectes sonors.
+
+   - Tenim cinc músiques de fons: una pel menu, una altra pel primer mapa, una altra pel segon mapa, 
+     una altra per la batalla amb el Golem i una altra per quan t'has passat el joc.
+
+
+Part creativa
+-------------
+
+-> Angler:
+
+   Quan li dono al mercantil el peix que prèviament he pescat, aquest es transforma en una mena de guerrer
+   i, a partir d'aquest moment, em segueix per tots dos mapes ajudant-me a vèncer els enemics afegint un
+   dany extra de 10 unitats de vida als nostres atacs.
+
+
+-> Lizard: 
+
+   Pot canviar a mode rèptil per tal de desplaçar-se més de pressa i poder arribar abans als llocs
+   i escapar dels enemics.
+
+
+-> Michael Jackson:
+   
+   Quan es mou cap a l'esquerra, fa el Moonwalk característic del rei del pop.
+
+
+Comentaris
+----------
+
+-> En els ordinadors de la FIB, quan premiem F10, s'aturava el joc, tant al Visual Studio com a l'executable
+   de la carpeta Binari. Per aquest motiu hem assignat un element de l'inventari a la tecla P i la resta
+   d'elements de l'inventari a les tecles F1..F9, F11 i F12.
+
+-> El video dura 1:44 minuts perquè no hem pogut posar la majoria de funcionalitats implementades en un
+   minut. Pel que fa al format, hem preferit enviar-t'ho en .mp4 perquè es veu molt millor i, a més a més,
+   ocupa molt menys que en .avi (19 MB vs 377 MB).
+   
